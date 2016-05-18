@@ -1,5 +1,7 @@
 package com.ddmeng.dagger2sample;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     HttpUtil httpUtil;
 
+    @Inject
+    ConnectivityManager connectivityManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // 可以观察到调用inject方法后,字段是按照在类中声明的顺序注入的
+
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
     }
 }

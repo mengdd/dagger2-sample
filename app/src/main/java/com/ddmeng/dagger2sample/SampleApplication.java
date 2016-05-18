@@ -4,10 +4,10 @@ import android.app.Application;
 
 import com.ddmeng.dagger2sample.component.DaggerMyApplicationComponent;
 import com.ddmeng.dagger2sample.component.MyApplicationComponent;
+import com.ddmeng.dagger2sample.module.MyApplicationModule;
 
 /**
  * Some of the comments are from http://google.github.io/dagger/users-guide.html
- *
  */
 public class SampleApplication extends Application {
 
@@ -20,7 +20,11 @@ public class SampleApplication extends Application {
         // Obtain an instance by invoking the builder() method on that implementation
         // and use the returned builder to set dependencies and build() a new instance.
 
-        component = DaggerMyApplicationComponent.builder().build();
+        component = DaggerMyApplicationComponent
+                .builder()
+                .myApplicationModule(new MyApplicationModule(this))//when module has constructor parameter, it has to be set here
+                // When module has no constructor parameter, Dagger will use the default one, so it's ok not to set it
+                .build();
 
         // If all dependencies can be constructed without the user creating a dependency instance,
         // then the generated implementation will also have a create() method
