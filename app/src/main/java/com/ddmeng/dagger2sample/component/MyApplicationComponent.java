@@ -7,6 +7,9 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+// Components may have multiple scope annotations applied.
+// This declares that they are all aliases to the same scope,
+// and so that component may include scoped bindings with any of the scopes it declares.
 @Singleton
 @Component(modules = MyApplicationModule.class)
 public interface MyApplicationComponent {
