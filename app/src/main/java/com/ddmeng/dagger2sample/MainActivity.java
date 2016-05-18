@@ -3,8 +3,11 @@ package com.ddmeng.dagger2sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.ddmeng.dagger2sample.network.HttpUtil;
 import com.ddmeng.dagger2sample.utils.FileUtils;
 import com.ddmeng.dagger2sample.utils.LogUtils;
+
+import java.io.IOException;
 
 import javax.inject.Inject;
 
@@ -15,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     FileUtils fileUtils;
+
+    @Inject
+    HttpUtil httpUtil;
 
 
     @Override
@@ -29,5 +35,13 @@ public class MainActivity extends AppCompatActivity {
         ((SampleApplication) getApplication()).getComponent().inject(this);
         logUtils.i(LogUtils.TAG, "hi, I'm another instance of LogUtils " + logUtils.hashCode());
         fileUtils.doSomething();
+
+        try {
+            httpUtil.get("get test");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
