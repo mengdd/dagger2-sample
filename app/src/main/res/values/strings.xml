@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dagger2Sample</string>
+    <string name="hello">Hello Dagger2 Sample</string>
 </resources>

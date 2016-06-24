@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ddmeng.dagger2sample.network.HttpUtil;
 import com.ddmeng.dagger2sample.utils.FileUtils;
+import com.ddmeng.dagger2sample.utils.GlobalTools;
 import com.ddmeng.dagger2sample.utils.LogUtils;
 
 import java.io.IOException;
@@ -26,12 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     ConnectivityManager connectivityManager;
+    private GlobalTools globalTools;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // we can get public dependency by method, without inject self
+        globalTools = ((SampleApplication) getApplication()).getComponent().getGlobalTools();
+        globalTools.doSth();
 
         ((SampleApplication) getApplication()).getComponent().inject(this);
         logUtils.i(LogUtils.TAG, "hi, I'm an instance of LogUtils " + logUtils.hashCode());
@@ -51,6 +56,5 @@ public class MainActivity extends AppCompatActivity {
         // 可以观察到调用inject方法后,字段是按照在类中声明的顺序注入的
 
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-
     }
 }

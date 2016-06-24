@@ -2,6 +2,7 @@ package com.ddmeng.dagger2sample.component;
 
 import com.ddmeng.dagger2sample.MainActivity;
 import com.ddmeng.dagger2sample.module.MyApplicationModule;
+import com.ddmeng.dagger2sample.utils.GlobalTools;
 
 import javax.inject.Singleton;
 
@@ -16,6 +17,8 @@ public interface MyApplicationComponent {
     // this should be an interface or abstract class
 
     // write like this, and Make Project, then a DaggerMyApplicationComponent class will be generated
+
+    GlobalTools getGlobalTools();
 
     void inject(MainActivity activity);
 }
