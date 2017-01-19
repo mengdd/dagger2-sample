@@ -2,9 +2,9 @@ package com.ddmeng.dagger2sample;
 
 import android.app.Application;
 
-import com.ddmeng.dagger2sample.component.DaggerMyApplicationComponent;
-import com.ddmeng.dagger2sample.component.MyApplicationComponent;
-import com.ddmeng.dagger2sample.module.MyApplicationModule;
+import com.ddmeng.dagger2sample.components.DaggerMyApplicationComponent;
+import com.ddmeng.dagger2sample.components.MyApplicationComponent;
+import com.ddmeng.dagger2sample.modules.MyApplicationModule;
 
 /**
  * Some of the comments are from http://google.github.io/dagger/users-guide.html

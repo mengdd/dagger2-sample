@@ -1,4 +1,4 @@
-package com.ddmeng.dagger2sample.module;
+package com.ddmeng.dagger2sample.modules;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

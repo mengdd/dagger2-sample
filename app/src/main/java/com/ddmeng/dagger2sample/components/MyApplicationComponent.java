@@ -1,7 +1,7 @@
-package com.ddmeng.dagger2sample.component;
+package com.ddmeng.dagger2sample.components;
 
 import com.ddmeng.dagger2sample.MainActivity;
-import com.ddmeng.dagger2sample.module.MyApplicationModule;
+import com.ddmeng.dagger2sample.modules.MyApplicationModule;
 import com.ddmeng.dagger2sample.utils.GlobalTools;
 
 import javax.inject.Singleton;
